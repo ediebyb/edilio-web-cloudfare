@@ -48,7 +48,7 @@ export default function Carousel() {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % slides.length)
-    }, 5000)
+    }, 20000)
     return () => clearInterval(timer)
   }, [])
 
