@@ -4,17 +4,15 @@ import { cardHover } from '@/utils/animations'
 
 interface ServiceCardProps {
   service: Service
+  onLearnMore: (service: Service) => void
 }
 
-export default function ServiceCard({ service }: ServiceCardProps) {
+export default function ServiceCard({ service, onLearnMore }: ServiceCardProps) {
   const Icon = service.icon
 
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault()
-    const target = document.querySelector('#contacto')
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth' })
-    }
+    onLearnMore(service)
   }
 
   return (
@@ -40,15 +38,14 @@ export default function ServiceCard({ service }: ServiceCardProps) {
       </p>
 
       {/* CTA */}
-      <a
-        href="#contacto"
+      <button
         onClick={handleClick}
         className="mt-4 inline-flex items-center text-brand-primary text-sm font-medium hover:text-brand-secondary transition-colors duration-200 group"
-        aria-label={`Agendar consultoría sobre ${service.title}`}
+        aria-label={`Saber más sobre ${service.title}`}
       >
         Saber más
         <span className="ml-1 group-hover:translate-x-1 transition-transform duration-200" aria-hidden="true">→</span>
-      </a>
+      </button>
     </motion.div>
   )
 }

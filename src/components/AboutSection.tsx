@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { Calendar, User } from 'lucide-react'
+import { Calendar } from 'lucide-react'
 import { STATS, BIO } from '@/data/about'
 import { staggerContainer, fadeInUp, slideInLeft } from '@/utils/animations'
 
@@ -29,15 +29,12 @@ export default function AboutSection() {
             className="flex justify-center lg:justify-start"
           >
             <div className="relative">
-              {/* Avatar placeholder */}
-              <div
-                className="w-72 h-72 sm:w-80 sm:h-80 rounded-3xl bg-gradient-to-br from-brand-primary to-brand-secondary flex items-center justify-center shadow-2xl"
-                role="img"
-                aria-label="Foto de Edilio Beas"
-              >
-                <User size={120} className="text-white/60" aria-hidden="true" />
-                <span className="sr-only">Edilio Beas</span>
-              </div>
+              {/* Foto de perfil */}
+              <img
+                src="/Perfil.jpg"
+                alt="Foto de Edilio Beas"
+                className="w-72 h-72 sm:w-80 sm:h-80 rounded-3xl object-cover shadow-2xl"
+              />
 
               {/* Badge flotante */}
               <div className="absolute -bottom-4 -right-4 bg-brand-accent text-white px-4 py-2 rounded-xl shadow-lg font-semibold text-sm">

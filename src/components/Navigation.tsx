@@ -44,9 +44,11 @@ export default function Navigation() {
             className="flex items-center space-x-2"
             aria-label="Edilio Beas - Ir al inicio"
           >
-            <span className="text-xl font-heading font-bold text-brand-primary">
-              Edilio Beas
-            </span>
+            <img
+              src="/logo.png"
+              alt="Edilio Beas Logo"
+              className="h-10 w-auto"
+            />
           </a>
 
           {/* Links desktop */}

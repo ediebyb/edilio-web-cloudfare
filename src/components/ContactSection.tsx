@@ -99,10 +99,7 @@ export default function ContactSection() {
                 Horario de atención
               </h4>
               <p className="text-gray-600 text-sm">
-                Lunes a Viernes: 9:00 – 18:00 (hora Chile)
-              </p>
-              <p className="text-gray-600 text-sm mt-1">
-                Respondo WhatsApp también los fines de semana.
+                Lunes a Viernes: 9:00 – 17:00 (hora Chile)
               </p>
             </div>
           </motion.div>
