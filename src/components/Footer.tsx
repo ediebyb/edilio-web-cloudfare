@@ -17,12 +17,17 @@ export default function Footer() {
       aria-label="Pie de página"
     >
       <div className="max-w-7xl mx-auto px-6 py-12">
-        
+
         {/* GRID DE 3 COLUMNAS */}
         <div className="grid md:grid-cols-3 gap-8 mb-8">
-          
-          {/* COLUMNA 1: Propuesta de Valor */}
+
+          {/* COLUMNA 1: Logo + Propuesta de Valor */}
           <div>
+            <img
+              src="/logo2.png"
+              alt="Edilio Beas Logo"
+              className="h-12 w-auto mb-4"
+            />
             <h3 className="text-white font-bold text-xl mb-4">
               ¿Listo para transformar tu PyME?
             </h3>

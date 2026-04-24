@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { useState, useEffect, useRef } from 'react'
+import { motion, AnimatePresence, PanInfo } from 'framer-motion'
 import { Calendar, TrendingUp, Award } from 'lucide-react'
 import { SETMORE_LINK } from '@/data/setmore'
 
@@ -45,6 +45,7 @@ const slides: Slide[] = [
 
 export default function Carousel() {
   const [currentIndex, setCurrentIndex] = useState(0)
+  const carouselRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -62,8 +63,16 @@ export default function Carousel() {
     setCurrentIndex((prev) => (prev - 1 + slides.length) % slides.length)
   }
 
+  const handleDragEnd = (_: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
+    if (info.offset.x < -50) {
+      nextSlide()
+    } else if (info.offset.x > 50) {
+      prevSlide()
+    }
+  }
+
   return (
-    <div className="relative w-full max-w-4xl mx-auto">
+    <div className="relative w-full max-w-4xl mx-auto" ref={carouselRef}>
       <AnimatePresence mode="wait">
         <motion.div
           key={currentIndex}
@@ -71,7 +80,11 @@ export default function Carousel() {
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -100 }}
           transition={{ duration: 0.5 }}
-          className="text-center"
+          drag="x"
+          dragConstraints={{ left: 0, right: 0 }}
+          dragElastic={1}
+          onDragEnd={handleDragEnd}
+          className="text-center cursor-grab active:cursor-grabbing"
         >
           <div className="inline-flex items-center justify-center w-16 h-16 bg-brand-accent/20 rounded-full mb-6">
             {(() => {
