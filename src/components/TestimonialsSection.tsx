@@ -150,7 +150,7 @@ export default function TestimonialsSection() {
             viewport={{ once: true, margin: '-50px' }}
             className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
           >
-            {getDesktopTestimonials().map((testimonial, index) => (
+            {getDesktopTestimonials().map((testimonial) => (
               <motion.div key={`${testimonial.id}-${currentIndex}`} variants={fadeInUp}>
                 <TestimonialCard testimonial={testimonial} />
               </motion.div>
