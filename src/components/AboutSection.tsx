@@ -32,16 +32,16 @@ export default function AboutSection() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
-          {/* Imagen / Avatar */}
+          {/* Columna izquierda: Foto de perfil + Logo + CTA */}
           <motion.div
             variants={slideInLeft}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-100px' }}
-            className="flex justify-center md:justify-start"
+            className="flex flex-col items-center gap-6"
           >
+            {/* Foto de perfil */}
             <div className="relative">
-              {/* Foto de perfil */}
               <img
                 src="/Perfil.jpg"
                 alt="Foto de Edilio Beas"
@@ -65,6 +65,26 @@ export default function AboutSection() {
                 <div className="w-full h-full border-2 border-[#C5A059]/20 rounded-3xl rotate-3" />
               </div>
             </div>
+
+            {/* Logo debajo de la foto - mismo tamaño */}
+            <img
+              src="/logo 1.png"
+              alt="Edilio Beas Logo"
+              className="w-64 h-64 md:w-56 md:h-56 lg:w-72 lg:h-72 rounded-3xl object-contain shadow-2xl bg-[#05121F] p-4"
+            />
+
+            {/* CTA centrado */}
+            <motion.div variants={fadeInUp}>
+              <a
+                href={SETMORE_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 text-sm md:text-base bg-brand-primary text-white font-semibold rounded-xl hover:bg-blue-800 transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+              >
+                <Calendar size={18} aria-hidden="true" />
+                Agenda tu 1ª Consultoría Gratuita
+              </a>
+            </motion.div>
           </motion.div>
 
           {/* Contenido */}
@@ -164,19 +184,6 @@ export default function AboutSection() {
                   )}
                 </div>
               ))}
-            </motion.div>
-
-            {/* CTA */}
-            <motion.div variants={fadeInUp}>
-              <a
-                href={SETMORE_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 text-sm md:text-base bg-brand-primary text-white font-semibold rounded-xl hover:bg-blue-800 transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
-              >
-                <Calendar size={18} aria-hidden="true" />
-                Agenda tu 1ª Consultoría Gratuita
-              </a>
             </motion.div>
           </motion.div>
         </div>
