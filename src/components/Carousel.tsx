@@ -45,29 +45,56 @@ const slides: Slide[] = [
 
 export default function Carousel() {
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [isDragging, setIsDragging] = useState(false)
   const carouselRef = useRef<HTMLDivElement>(null)
+  const timerRef = useRef<NodeJS.Timeout | null>(null)
+
+  const resetTimer = () => {
+    if (timerRef.current) {
+      clearInterval(timerRef.current)
+    }
+    timerRef.current = setInterval(() => {
+      if (!isDragging) {
+        setCurrentIndex((prev) => (prev + 1) % slides.length)
+      }
+    }, 20000)
+  }
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % slides.length)
-    }, 20000)
-    return () => clearInterval(timer)
+    resetTimer()
+    return () => {
+      if (timerRef.current) clearInterval(timerRef.current)
+    }
   }, [])
-
 
   const nextSlide = () => {
     setCurrentIndex((prev) => (prev + 1) % slides.length)
+    resetTimer()
   }
 
   const prevSlide = () => {
     setCurrentIndex((prev) => (prev - 1 + slides.length) % slides.length)
+    resetTimer()
+  }
+
+  const goToSlide = (index: number) => {
+    setCurrentIndex(index)
+    resetTimer()
+  }
+
+  const handleDragStart = () => {
+    setIsDragging(true)
+    if (timerRef.current) clearInterval(timerRef.current)
   }
 
   const handleDragEnd = (_: MouseEvent | TouchEvent | PointerEvent, info: PanInfo) => {
+    setIsDragging(false)
     if (info.offset.x < -50) {
       nextSlide()
     } else if (info.offset.x > 50) {
       prevSlide()
+    } else {
+      resetTimer()
     }
   }
 
@@ -83,6 +110,7 @@ export default function Carousel() {
           drag="x"
           dragConstraints={{ left: 0, right: 0 }}
           dragElastic={1}
+          onDragStart={handleDragStart}
           onDragEnd={handleDragEnd}
           className="text-center cursor-grab active:cursor-grabbing"
         >
@@ -142,7 +170,7 @@ export default function Carousel() {
         {slides.map((_, index) => (
           <button
             key={index}
-            onClick={() => setCurrentIndex(index)}
+            onClick={() => goToSlide(index)}
             className={`w-3 h-3 rounded-full transition-all duration-200 ${
               index === currentIndex ? 'bg-brand-accent w-8' : 'bg-white/30 hover:bg-white/50'
             }`}

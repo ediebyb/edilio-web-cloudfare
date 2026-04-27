@@ -32,13 +32,13 @@ export default function AboutSection() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
-          {/* Columna izquierda: Foto de perfil + Logo + CTA */}
+          {/* Columna izquierda: Foto de perfil + Logo + CTA - orden 2 en movil, 1 en desktop */}
           <motion.div
             variants={slideInLeft}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-100px' }}
-            className="flex flex-col items-center gap-6"
+            className="flex flex-col items-center gap-6 order-2 md:order-1"
           >
             {/* Foto de perfil */}
             <div className="relative">
@@ -87,13 +87,13 @@ export default function AboutSection() {
             </motion.div>
           </motion.div>
 
-          {/* Contenido */}
+          {/* Contenido - orden 1 en movil, 2 en desktop */}
           <motion.div
             variants={staggerContainer}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: '-100px' }}
-            className="space-y-4 md:space-y-3"
+            className="space-y-4 md:space-y-3 order-1 md:order-2"
           >
             <motion.span
               variants={fadeInUp}
