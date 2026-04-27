@@ -1,0 +1,12 @@
+name = "consultoria"
+compatibility_date = "2026-04-27"
+
+[observability]
+enabled = true
+
+[[assets]]
+directory = "dist"
+not_found_handling = "single-page-application"
+
+[compatibility_flags]
+flags = ["nodejs_compat"]
