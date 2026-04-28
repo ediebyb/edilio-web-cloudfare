@@ -169,7 +169,7 @@ export default function ServicesSection() {
 
         {/* Price disclaimer */}
         <div className="text-center text-sm text-gray-500 mt-8">
-          * Todos los precios están en pesos chilenos (CLP) y no incluyen Impuestos, fuera de Chile los precios se convierten a dólar americano (USD). Los valores finales pueden variar según necesidades específicas del proyecto.
+          * Precios en CLP sin impuestos. Para clientes fuera de Chile se convierten a USD. Los valores finales pueden variar según las necesidades específicas de cada proyecto.
         </div>
       </div>
 

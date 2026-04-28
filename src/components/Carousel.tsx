@@ -112,7 +112,7 @@ export default function Carousel() {
           dragElastic={1}
           onDragStart={handleDragStart}
           onDragEnd={handleDragEnd}
-          className="text-center cursor-grab active:cursor-grabbing"
+          className="text-center cursor-grab active:cursor-grabbing min-h-[500px] md:min-h-[480px] flex flex-col justify-center"
         >
           <div className="inline-flex items-center justify-center w-16 h-16 bg-brand-accent/20 rounded-full mb-6">
             {(() => {
@@ -121,16 +121,16 @@ export default function Carousel() {
             })()}
           </div>
 
-          <h2 className="text-5xl md:text-7xl font-heading font-bold text-white leading-tight tracking-tight mb-6">
+          <h2 className="text-4xl md:text-6xl font-heading font-bold text-white leading-tight tracking-tight mb-6">
             {slides[currentIndex].title}
           </h2>
 
-          <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-8">
+          <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto mb-6">
             {slides[currentIndex].subtitle}
           </p>
 
           {slides[currentIndex].stats && (
-            <div className="flex flex-wrap items-center justify-center gap-8 mb-8">
+            <div className="flex flex-wrap items-center justify-center gap-8 mb-6">
               {slides[currentIndex].stats?.map((stat, index) => (
                 <div key={index} className="text-center">
                   <div className="text-2xl sm:text-3xl font-heading font-bold text-brand-accent">
@@ -143,7 +143,7 @@ export default function Carousel() {
           )}
 
           {slides[currentIndex].bullets && (
-            <ul className="text-left max-w-md mx-auto mb-8 space-y-2">
+            <ul className="text-left max-w-md mx-auto mb-6 space-y-2">
               {slides[currentIndex].bullets?.map((bullet, index) => (
                 <li key={index} className="flex items-center gap-2 text-white/80">
                   <span className="text-brand-accent">→</span>

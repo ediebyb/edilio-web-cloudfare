@@ -18,10 +18,10 @@ export default function Footer() {
     >
       <div className="max-w-7xl mx-auto px-6 py-12">
 
-        {/* GRID DE 4 COLUMNAS */}
-        <div className="grid md:grid-cols-4 gap-8 mb-8">
+        {/* GRID DE 3 COLUMNAS */}
+        <div className="grid md:grid-cols-3 gap-8 mb-8">
 
-          {/* COLUMNA 1: Logo + Propuesta de Valor + CTA */}
+          {/* COLUMNA 1: Logo + Propuesta de Valor + CTA + Confidencialidad */}
           <div>
             <img
               src="/logomini.png"
@@ -43,10 +43,16 @@ export default function Footer() {
               Agenda tu consultoría
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </a>
+            <div className="mt-6 flex items-center gap-2 text-sm text-gray-500">
+              <div className="p-1 rounded bg-[#C5A059]/20">
+                <Shield className="w-4 h-4 text-[#C5A059]" />
+              </div>
+              <span>Confidencialidad 100% garantizada</span>
+            </div>
           </div>
 
           {/* COLUMNA 2: Stats de Autoridad */}
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-4 content-start">
             <div className="group cursor-default">
               <div className="text-2xl font-bold text-[#C5A059] mb-1 group-hover:scale-110 transition-transform duration-300 inline-block">150+</div>
               <div className="text-gray-400 text-xs">Proyectos Exitosos</div>
@@ -87,35 +93,6 @@ export default function Footer() {
                 </div>
                 <span className="text-sm">Transferencia Bancaria</span>
               </div>
-            </div>
-          </div>
-
-          {/* COLUMNA 4: Navegación */}
-          <div>
-            <h4 className="text-white font-semibold mb-4">Navegación</h4>
-            <ul className="space-y-2 text-gray-400">
-              {[
-                { href: '#inicio', label: 'Inicio' },
-                { href: '#servicios', label: 'Servicios' },
-                { href: '#sobre-mi', label: 'Sobre mí' },
-                { href: '#testimonios', label: 'Testimonios' },
-                { href: '#contacto', label: 'Contacto' },
-              ].map((link) => (
-                <li key={link.href}>
-                  <a 
-                    href={link.href} 
-                    className="group inline-flex items-center gap-1 hover:text-[#C5A059] transition-all duration-300"
-                  >
-                    <span className="group-hover:translate-x-1 transition-transform duration-300">{link.label}</span>
-                  </a>
-                </li>
-              ))}
-            </ul>
-            <div className="mt-6 flex items-center gap-2 text-sm text-gray-500">
-              <div className="p-1 rounded bg-[#C5A059]/20">
-                <Shield className="w-4 h-4 text-[#C5A059]" />
-              </div>
-              <span>Confidencialidad 100% garantizada</span>
             </div>
           </div>
         </div>
