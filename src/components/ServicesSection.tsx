@@ -52,7 +52,7 @@ export default function ServicesSection() {
             className="text-gray-600 max-w-2xl mx-auto text-lg"
           >
             Soluciones prácticas y personalizadas en marketing digital, tecnología y automatización
-            para que tu negocio sea más competitivo.
+            para que tu negocio sea más profesional y más competitivo.
           </motion.p>
         </motion.div>
 

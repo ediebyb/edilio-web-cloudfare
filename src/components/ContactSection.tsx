@@ -282,15 +282,19 @@ export default function ContactSection() {
 
                   rel="noopener noreferrer"
 
-                  className="flex flex-col items-center gap-2 p-4 bg-white border border-gray-200 rounded-lg hover:border-[#D4AF6A] hover:shadow-lg transition-all group"
+                  className="flex flex-col items-center gap-2 p-4 bg-white border-2 border-gray-200 rounded-lg hover:border-[#C5A059] hover:shadow-xl hover:scale-105 transition-all group"
 
                   aria-label="X (Twitter)"
 
                 >
 
-                  <X className={`w-6 h-6 text-gray-600 hover:text-black transition-colors`} />
+                  <div className="p-2 bg-black rounded-lg group-hover:bg-[#C5A059] transition-colors">
 
-                  <span className="text-xs text-gray-600 group-hover:text-[#05121F]">X (Twitter)</span>
+                    <X className={`w-5 h-5 text-white`} />
+
+                  </div>
+
+                  <span className="text-xs text-gray-600 group-hover:text-[#C5A059] font-medium">X</span>
 
                 </a>
 

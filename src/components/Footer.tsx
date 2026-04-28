@@ -18,33 +18,10 @@ export default function Footer() {
     >
       <div className="max-w-7xl mx-auto px-6 py-12">
 
-        {/* GRID DE 3 COLUMNAS */}
+        {/* GRID: Stats | Métodos de Pago (vertical) | Navegación (derecha) */}
         <div className="grid md:grid-cols-3 gap-8 mb-8">
 
-          {/* COLUMNA 1: Logo + Propuesta de Valor */}
-          <div>
-            <img
-              src="/logomini.png"
-              alt="Edilio Beas Logo"
-              className="h-12 w-auto mb-4 rounded-lg"
-            />
-            <h3 className="text-white font-bold text-xl mb-4">
-              ¿Listo para transformar tu PyME?
-            </h3>
-            <p className="text-gray-400 mb-6">
-              Únete a las 30+ empresas en LATAM que ya aumentaron sus ventas y recuperaron su tiempo con mis estrategias.
-            </p>
-            <a
-              href={SETMORE_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-[#C5A059] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#D4AF6A] transition-colors"
-            >
-              Agenda tu consultoría gratis →
-            </a>
-          </div>
-
-          {/* COLUMNA 2: Stats de Autoridad */}
+          {/* COLUMNA 1: Stats de Autoridad */}
           <div className="grid grid-cols-2 gap-6">
             <div>
               <div className="text-3xl font-bold text-[#C5A059] mb-2">150+</div>
@@ -64,8 +41,27 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* COLUMNA 3: Links Rápidos + Garantía */}
-          <div>
+          {/* COLUMNA 2: Métodos de Pago (vertical) */}
+          <div className="flex flex-col items-center justify-center">
+            <h4 className="text-white font-semibold mb-4">Métodos de pago</h4>
+            <div className="flex flex-col gap-4">
+              <div className="flex items-center gap-3 text-gray-300 hover:text-[#C5A059] transition-colors cursor-pointer">
+                <CreditCard className="w-5 h-5" />
+                <span className="text-sm">PayPal</span>
+              </div>
+              <div className="flex items-center gap-3 text-gray-300 hover:text-[#C5A059] transition-colors cursor-pointer">
+                <Bitcoin className="w-5 h-5" />
+                <span className="text-sm">Criptomonedas</span>
+              </div>
+              <div className="flex items-center gap-3 text-gray-300 hover:text-[#C5A059] transition-colors cursor-pointer">
+                <Landmark className="w-5 h-5" />
+                <span className="text-sm">Transferencia Bancaria</span>
+              </div>
+            </div>
+          </div>
+
+          {/* COLUMNA 3: Navegación (alineada derecha) */}
+          <div className="md:text-right">
             <h4 className="text-white font-semibold mb-4">Navegación</h4>
             <ul className="space-y-2 text-gray-400">
               <li><a href="#inicio" className="hover:text-[#C5A059] transition-colors">Inicio</a></li>
@@ -74,30 +70,9 @@ export default function Footer() {
               <li><a href="#testimonios" className="hover:text-[#C5A059] transition-colors">Testimonios</a></li>
               <li><a href="#contacto" className="hover:text-[#C5A059] transition-colors">Contacto</a></li>
             </ul>
-            <div className="mt-6 flex items-center gap-2 text-sm text-gray-500">
+            <div className="mt-6 flex items-center md:justify-end gap-2 text-sm text-gray-500">
               <Shield className="w-4 h-4 text-[#C5A059]" />
               <span>Confidencialidad 100% garantizada</span>
-            </div>
-          </div>
-        </div>
-
-        {/* MÉTODOS DE PAGO */}
-        <div className="border-t border-white/10 pt-6 pb-4">
-          <div className="flex flex-col md:flex-row justify-center items-center gap-6">
-            <span className="text-gray-400 text-sm">Métodos de pago aceptados:</span>
-            <div className="flex items-center gap-6">
-              <div className="flex items-center gap-2 text-gray-300 hover:text-[#C5A059] transition-colors">
-                <CreditCard className="w-5 h-5" />
-                <span className="text-sm">PayPal</span>
-              </div>
-              <div className="flex items-center gap-2 text-gray-300 hover:text-[#C5A059] transition-colors">
-                <Bitcoin className="w-5 h-5" />
-                <span className="text-sm">Criptomonedas</span>
-              </div>
-              <div className="flex items-center gap-2 text-gray-300 hover:text-[#C5A059] transition-colors">
-                <Landmark className="w-5 h-5" />
-                <span className="text-sm">Transferencia Bancaria</span>
-              </div>
             </div>
           </div>
         </div>
