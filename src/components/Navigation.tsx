@@ -1,20 +1,19 @@
 import { useState, useEffect } from 'react'
-
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-
 import { Menu, X } from 'lucide-react'
-
 import { NAV_LINKS } from '@/data/navigation'
 import { SETMORE_LINK } from '@/data/setmore'
 
 
 
 export default function Navigation() {
+  const location = useLocation()
+  const navigate = useNavigate()
+  const isHomePage = location.pathname === '/'
 
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-
   const [isScrolled, setIsScrolled] = useState(false)
-
   const [activeSection, setActiveSection] = useState('inicio')
 
 
@@ -53,20 +52,21 @@ export default function Navigation() {
 
 
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-
+  const handleNavClick = (e: React.MouseEvent, href: string) => {
     e.preventDefault()
 
-    const target = document.querySelector(href)
-
-    if (target) {
-
-      target.scrollIntoView({ behavior: 'smooth' })
-
+    if (isHomePage) {
+      // En home, hacer scroll directo
+      const target = document.querySelector(href)
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' })
+      }
+    } else {
+      // En subpágina, navegar a home con el hash
+      navigate(`/${href}`)
     }
 
     setIsMenuOpen(false)
-
   }
 
 
@@ -94,26 +94,24 @@ export default function Navigation() {
         <div className="flex items-center justify-between h-20">
 
           {/* Logo / Marca */}
-
-          <a
-
-            href="#inicio"
-
-            onClick={(e) => handleNavClick(e, '#inicio')}
-
+          <Link
+            to="/"
+            onClick={(e) => {
+              if (isHomePage) {
+                e.preventDefault()
+                window.scrollTo({ top: 0, behavior: 'smooth' })
+              }
+              setIsMenuOpen(false)
+            }}
             className="flex items-center"
-
             aria-label="Edilio Beas - Ir al inicio"
-
           >
-
             <img
               src="/logomini.png"
               alt="Edilio Beas Logo"
               className="h-12 w-auto rounded-lg bg-[#05121F]"
             />
-
-          </a>
+          </Link>
 
 
 

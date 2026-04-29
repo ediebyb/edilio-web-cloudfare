@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import HomePage from '@/pages/HomePage'
+import ServicesListPage from '@/pages/ServicesListPage'
 import ServiceDetailPage from '@/pages/ServiceDetailPage'
 
 export default function App() {
@@ -7,6 +8,7 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/servicios" element={<ServicesListPage />} />
         <Route path="/servicios/:serviceId" element={<ServiceDetailPage />} />
         {/* Redirects para URLs legacy */}
         <Route path="/inicio" element={<Navigate to="/" replace />} />
